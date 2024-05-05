@@ -1,0 +1,82 @@
+{
+    "version": 1,
+    "author": "Anonymous maker",
+    "editor": "wokwi",
+    "parts": [
+      {
+        "type": "wokwi-pi-pico",
+        "id": "pico",
+        "top": 6.45,
+        "left": -63.6,
+        "attrs": { "env": "micropython-20231227-v1.22.0" }
+      },
+      { "type": "wokwi-potentiometer", "id": "pot1", "top": -68.5, "left": 134.2, "attrs": {} },
+      { "type": "wokwi-vcc", "id": "vcc1", "top": -8.84, "left": 220.8, "attrs": {} },
+      { "type": "wokwi-led", "id": "led1", "top": -61.2, "left": -313, "attrs": { "color": "red" } },
+      {
+        "type": "wokwi-led",
+        "id": "led2",
+        "top": -61.2,
+        "left": -284.2,
+        "attrs": { "color": "red" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led3",
+        "top": -61.2,
+        "left": -255.4,
+        "attrs": { "color": "red" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led4",
+        "top": -61.2,
+        "left": -226.6,
+        "attrs": { "color": "red" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led5",
+        "top": -61.2,
+        "left": -197.8,
+        "attrs": { "color": "red" }
+      },
+      { "type": "wokwi-led", "id": "led6", "top": -61.2, "left": -169, "attrs": { "color": "red" } },
+      {
+        "type": "wokwi-led",
+        "id": "led7",
+        "top": -61.2,
+        "left": -140.2,
+        "attrs": { "color": "red" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led8",
+        "top": -61.2,
+        "left": -111.4,
+        "attrs": { "color": "red" }
+      }
+    ],
+    "connections": [
+      [ "pico:GP28", "pot1:SIG", "green", [ "h0" ] ],
+      [ "pot1:VCC", "vcc1:VCC", "red", [ "v0" ] ],
+      [ "pico:GND.8", "pot1:GND", "black", [ "h0" ] ],
+      [ "led1:A", "pico:GP0", "green", [ "v0" ] ],
+      [ "led2:A", "pico:GP1", "green", [ "v0" ] ],
+      [ "led3:A", "pico:GP2", "green", [ "v0" ] ],
+      [ "led4:A", "pico:GP3", "green", [ "v0" ] ],
+      [ "led5:A", "pico:GP4", "green", [ "v0" ] ],
+      [ "led6:A", "pico:GP5", "green", [ "v0" ] ],
+      [ "led7:A", "pico:GP6", "green", [ "v0" ] ],
+      [ "led8:A", "pico:GP7", "green", [ "v0" ] ],
+      [ "pico:GND.4", "led8:C", "black", [ "h0" ] ],
+      [ "pico:GND.4", "led7:C", "black", [ "h0" ] ],
+      [ "pico:GND.3", "led6:C", "black", [ "h0" ] ],
+      [ "pico:GND.3", "led5:C", "black", [ "h0" ] ],
+      [ "pico:GND.2", "led4:C", "black", [ "h0" ] ],
+      [ "pico:GND.2", "led3:C", "black", [ "h0" ] ],
+      [ "pico:GND.1", "led2:C", "black", [ "h0" ] ],
+      [ "pico:GND.1", "led1:C", "black", [ "h0" ] ]
+    ],
+    "dependencies": {}
+  }

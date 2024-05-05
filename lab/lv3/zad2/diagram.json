@@ -1,0 +1,210 @@
+{
+  "version": 1,
+  "author": "Samim Konjicija",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 0,
+      "left": -6.89,
+      "attrs": { "env": "micropython-20220117-v1.18" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -141.58,
+      "left": -117.62,
+      "attrs": { "color": "green", "key": "1" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": -97.67,
+      "left": -117.63,
+      "attrs": { "color": "green", "key": "2" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn3",
+      "top": -52.88,
+      "left": -117.62,
+      "attrs": { "color": "green", "key": "3" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r12",
+      "top": -52.72,
+      "left": -13.18,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r13",
+      "top": -32.81,
+      "left": -13.95,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r14",
+      "top": -76.46,
+      "left": -13.18,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r15",
+      "top": -99.44,
+      "left": -13.95,
+      "attrs": { "value": "1000" }
+    },
+    { "type": "wokwi-gnd", "id": "gnd3", "top": -59.22, "left": 52.85, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": -207.78, "left": -151.79, "attrs": {} },
+    { "type": "wokwi-vcc", "id": "vcc2", "top": -130.44, "left": 128.49, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd4", "top": 36.51, "left": 137.09, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn4",
+      "top": -9.36,
+      "left": -118.94,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-7segment",
+      "id": "sevseg1",
+      "top": 121.02,
+      "left": -373.28,
+      "attrs": { "digits": "4" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 51.95,
+      "left": -96,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 61.55,
+      "left": -96,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 80.75,
+      "left": -96,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r4",
+      "top": 90.35,
+      "left": -96,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r5",
+      "top": 99.95,
+      "left": -96,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r6",
+      "top": 109.55,
+      "left": -96,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r7",
+      "top": 128.75,
+      "left": -96,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r8",
+      "top": 138.35,
+      "left": -96,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r9",
+      "top": 147.95,
+      "left": -96,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r10",
+      "top": 157.55,
+      "left": -96,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r11",
+      "top": 176.75,
+      "left": -96,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r16",
+      "top": 186.35,
+      "left": -96,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "r13:1", "pico:GP3", "green", [ "v0" ] ],
+    [ "r12:1", "pico:GP2", "green", [ "v0" ] ],
+    [ "r14:1", "pico:GP1", "green", [ "v0" ] ],
+    [ "r15:1", "pico:GP0", "green", [ "v0" ] ],
+    [ "r15:2", "gnd3:GND", "green", [ "v0" ] ],
+    [ "r15:2", "r14:2", "green", [ "v0" ] ],
+    [ "r14:2", "r12:2", "green", [ "v0" ] ],
+    [ "r12:2", "r13:2", "green", [ "v0" ] ],
+    [ "btn1:1.l", "vcc1:VCC", "green", [ "h0" ] ],
+    [ "pico:VSYS", "vcc2:VCC", "green", [ "h0" ] ],
+    [ "pico:GND.8", "gnd4:GND", "black", [ "h0" ] ],
+    [ "vcc1:VCC", "btn2:1.l", "green", [ "v0" ] ],
+    [ "vcc1:VCC", "btn3:1.l", "green", [ "v0" ] ],
+    [ "vcc1:VCC", "btn4:1.l", "green", [ "v0" ] ],
+    [ "btn1:2.r", "r15:1", "green", [ "h0" ] ],
+    [ "btn2:2.r", "r14:1", "green", [ "h0" ] ],
+    [ "btn3:2.r", "r12:1", "green", [ "h0" ] ],
+    [ "btn4:2.r", "r13:1", "green", [ "h0" ] ],
+    [ "r1:2", "pico:GP4", "green", [ "v0", "h37.2" ] ],
+    [ "r1:1", "sevseg1:DIG1", "green", [ "v0", "h-220.8" ] ],
+    [ "r2:1", "sevseg1:DIG2", "green", [ "v0", "h-182.4" ] ],
+    [ "pico:GP5", "r2:2", "green", [ "h0" ] ],
+    [ "pico:GP6", "r3:2", "green", [ "h0" ] ],
+    [ "sevseg1:DIG3", "r3:1", "green", [ "v0" ] ],
+    [ "pico:GP7", "r4:2", "green", [ "h0" ] ],
+    [ "r4:1", "sevseg1:DIG4", "green", [ "v0", "h-76.8", "v115.2", "h-86.4" ] ],
+    [ "r5:2", "pico:GP8", "green", [ "v0" ] ],
+    [ "r5:1", "sevseg1:A", "green", [ "v0", "h-201.6" ] ],
+    [ "pico:GP9", "r6:2", "green", [ "h0" ] ],
+    [ "r6:1", "sevseg1:B", "green", [ "v0", "h-153.6" ] ],
+    [ "pico:GP10", "r7:2", "green", [ "h0" ] ],
+    [ "r7:1", "sevseg1:C", "green", [ "v0", "h-67.2", "v86.4", "h-115.2" ] ],
+    [ "pico:GP11", "r8:2", "green", [ "h0" ] ],
+    [ "r8:1", "sevseg1:D", "green", [ "v0", "h-57.6", "v86.4", "h-144" ] ],
+    [ "pico:GP12", "r9:2", "green", [ "h0" ] ],
+    [ "r9:1", "sevseg1:E", "green", [ "v0", "h-48", "v86.4", "h-163.2" ] ],
+    [ "pico:GP13", "r10:2", "green", [ "h0" ] ],
+    [ "r10:1", "sevseg1:F", "green", [ "v0", "h-38.4", "v86.4", "h-259.2", "v-153.6", "h96" ] ],
+    [ "pico:GP14", "r11:2", "green", [ "h0" ] ],
+    [ "r11:1", "sevseg1:G", "green", [ "v0", "h-28.8", "v76.8", "h-134.4" ] ],
+    [ "r16:2", "pico:GP15", "green", [ "v0" ] ],
+    [ "r16:1", "sevseg1:DP", "green", [ "v0", "h-19.2", "v76.8", "h-172.8" ] ]
+  ],
+  "dependencies": {}
+}

@@ -1,0 +1,114 @@
+import time
+import rp2
+from rp2 import PIO
+from machine import Pin
+from time import sleep
+
+taster1 = Pin(0, Pin.IN) 
+taster2 = Pin(28, Pin.IN)
+taster3 = Pin(22, Pin.IN)
+taster4 = Pin(16, Pin.IN)
+"""
+@rp2.asm_pio(out_init=[PIO.OUT_LOW]*8, sideset_init=[PIO.OUT_LOW]*4)
+def sevseg():
+    wrap_target()
+    label("0")
+    pull(noblock)           .side(0)      # 0
+    mov(x, osr)             .side(0)      # 1
+    out(pins, 8)            .side(1)      # 2
+    out(pins, 8)            .side(2)      # 3
+    out(pins, 8)            .side(4)      # 4
+    out(pins, 8)            .side(8)      # 5
+    jmp("0")                .side(0)      # 6
+    wrap()
+  
+sm = rp2.StateMachine(0, sevseg, freq=2000, out_base=Pin(2), sideset_base=Pin(10))
+sm.active(1)
+
+digits = [
+  0b11000000, # 0
+  0b11111001, # 1
+  0b10100100, # 2 
+  0b10110000, # 3
+  0b10011001, # 4
+  0b10010010, # 5
+  0b10000010, # 6
+  0b11111000, # 7
+  0b10000000, # 8
+  0b10011000, # 9
+]
+
+def segmentize(num):
+  return (
+    digits[num % 10] | digits[num // 10 % 10] << 8
+    | digits[num // 100 % 10] << 16 
+    | digits[num // 1000 % 10] << 24 
+  )
+
+counter = 0
+while True:
+  sm.put(segmentize(counter));
+  counter += 1
+  sleep(0.1)
+"""
+segments = [
+    Pin(2, Pin.OUT),
+    Pin(6, Pin.OUT),
+    Pin(12, Pin.OUT),
+    Pin(14, Pin.OUT),
+    Pin(15, Pin.OUT),
+    Pin(3, Pin.OUT),
+    Pin(11, Pin.OUT)
+]
+
+digits = [
+    Pin(1,Pin.OUT),
+    Pin(4,Pin.OUT),
+    Pin(5,Pin.OUT),
+    Pin(10,Pin.OUT)
+]
+
+number_map = [
+    [1, 1, 1, 1, 1, 1, 0],  # 0
+    [0, 1, 1, 0, 0, 0, 0],  # 1
+    [1, 1, 0, 1, 1, 0, 1],  # 2
+    [1, 1, 1, 1, 0, 0, 1],  # 3
+    [0, 1, 1, 0, 0, 1, 1],  # 4
+    [1, 0, 1, 1, 0, 1, 1],  # 5
+    [1, 0, 1, 1, 1, 1, 1],  # 6
+    [1, 1, 1, 0, 0, 0, 0],  # 7
+    [1, 1, 1, 1, 1, 1, 1],  # 8
+    [1, 1, 1, 1, 0, 1, 1]   # 9
+]
+
+def display_number(number):
+    for i in range(4):
+        digit = number % 10
+
+    segments_values = number_map[number]
+    for i in range(len(segments)):
+        segments[i].value(segments_values[i])
+
+c = 0
+
+while True:
+    if taster1.value()== True :
+        c += 1
+        if(c > 255):
+            c = 0
+        while taster1.value()== True :
+            sleep(0.1)
+    if taster2.value()== True :
+        c -= 1
+        if(c < 0):
+            c = 255
+        while taster2.value()== True :
+            sleep(0.1)
+    if taster3.value()== True :
+        c = 0
+        while taster3.value()== True :
+            sleep(0.1)
+    if taster4.value()== True :
+        c = 255
+        while taster4.value()== True :
+            sleep(0.1)
